@@ -1,0 +1,28 @@
+{
+  "name": "xspeedit-nico29",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Speed up a box packing chain",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nico29/xspeedit.git"
+  },
+  "author": "nmarien29@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nico29/xspeedit/issues"
+  },
+  "homepage": "https://github.com/nico29/xspeedit#readme",
+  "devDependencies": {
+    "@nico29/eslint-config": "^1.0.1",
+    "eslint": "^4.11.0",
+    "jest": "^21.2.1"
+  },
+  "eslintConfig": {
+    "extends": "@nico29"
+  }
+}
