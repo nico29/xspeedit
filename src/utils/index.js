@@ -1,8 +1,12 @@
+/**
+ * Some utils functions to manipulate arrays and numbers
+ * @module utils
+ */
 module.exports = {
     /**
-     * Convert a sequence of number into an array of numbers
+     * Convert a sequence of numbers (string or number) into an array of numbers
      * @param {Number|String} input - The input to process
-     * @returns {Array}             - A array of numbers
+     * @returns {Array<Number>}     - An array of numbers
      */
     toNumberArray (input = '') {
         let processedInput = [];
@@ -19,13 +23,20 @@ module.exports = {
             const number = Number.parseInt(string);
             if (!Number.isNaN(number)) numbers.push(number);
             else {
+                /* eslint-disable no-console */
                 console.warn(`\t⚠️ Cannot pack '${string}', this thing will be discarded.`);
+                /* eslint-enable no-console */
                 continue;
             }
         }
         return numbers;
     },
 
+    /**
+     * Check if all members of an array are numbers
+     * @param {Array} input - The array to check
+     * @returns {Boolean}   - Are all members numbers
+     */
     isArrayOfNumbers (input = []) {
         if (!(input instanceof Array)) {
             throw new TypeError('ensureArrayOfNumbers argument should be an array');

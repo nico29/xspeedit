@@ -9,8 +9,11 @@ const { version } = require('./package.json');
 const PackingChain = require('./src/packingChain');
 const { toNumberArray, isArrayOfNumbers } = require('./src/utils');
 
+// hack commander for usage display
+program._name = 'npm';
 program
     .version(version)
+    .usage('run pack -- [options]')
     .option('-c, --capacity [capacity]', 'The package capacity. Defaults to 10')
     .option('-s, --separator [separator]', 'A string to separate packages to ship')
     .option('-t, --things [things]', 'The things to pack')
@@ -25,6 +28,12 @@ if (!program.things && !program.file) {
     process.exit(-1);
 }
 
+/**
+ * Read the content of a file and convert it to a array of numbers
+ * @async
+ * @param {String} file              - the file to read
+ * @returns {Promise<Array<Number>>} - The things to pack
+ */
 async function processFile (file) {
     return new Promise((resolve, reject) => {
         const things = [];
@@ -53,6 +62,13 @@ async function processFile (file) {
     });
 }
 
+/**
+ * Grab the things to pack and start the chain to send packages to the customers
+ * @async
+ * @returns {Promise<String>} - The 📦, filled with goodies
+ * @throws {TypeError}        - If some of the things provided are weird and cannot be packed by the chain
+ * @throws {Error}            - If something went wrong during the processing of the file
+ */
 async function runPackingChain () {
     let things = [];
     const CHAIN_CAPACITY = program.capacity || DEFAULT_CHAIN_CAPACITY;

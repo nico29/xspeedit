@@ -6,7 +6,10 @@
   "main": "index.js",
   "scripts": {
     "pack": "node index.js",
-    "test": "jest --watchAll"
+    "test": "jest",
+    "test:integration": "jest --watchAll",
+    "lint": "eslint src/ index.js",
+    "doc": "jsdoc --readme README.md -d docs src/ index.js"
   },
   "repository": {
     "type": "git",
@@ -22,7 +25,8 @@
     "@nico29/eslint-config": "^1.0.1",
     "@types/jest": "^21.1.8",
     "eslint": "^4.11.0",
-    "jest": "^21.2.1"
+    "jest": "^21.2.1",
+    "jsdoc": "^3.5.5"
   },
   "eslintConfig": {
     "extends": "@nico29"

@@ -1,6 +1,5 @@
 /* eslint no-magic-numbers: 0 */
-const Package = require('../src/package');
-const PackageNotEnoughSpace = Package.PackageNotEnoughSpace;
+const { Package, PackageNotEnoughSpace } = require('../src/package');
 
 const PACKAGE_CAPACITY = 10;
 describe('package test suite', () => {
