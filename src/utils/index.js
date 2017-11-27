@@ -14,13 +14,22 @@ module.exports = {
             throw new TypeError('Input should be either a string or a number');
         }
 
-        return processedInput.map(string => Number.parseInt(string));
+        const numbers = [];
+        for (let string of processedInput) {
+            const number = Number.parseInt(string);
+            if (!Number.isNaN(number)) numbers.push(number);
+            else {
+                console.warn(`\t⚠️ Cannot pack '${string}', this thing will be discarded.`);
+                continue;
+            }
+        }
+        return numbers;
     },
 
     isArrayOfNumbers (input = []) {
         if (!(input instanceof Array)) {
             throw new TypeError('ensureArrayOfNumbers argument should be an array');
         }
-        return input.every(element => typeof element === 'number');
+        return input.every(element => element && typeof element === 'number');
     }
 };
