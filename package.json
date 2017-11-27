@@ -5,7 +5,7 @@
   "description": "Speed up a box packing chain",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --watchAll"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   "homepage": "https://github.com/nico29/xspeedit#readme",
   "devDependencies": {
     "@nico29/eslint-config": "^1.0.1",
+    "@types/jest": "^21.1.8",
     "eslint": "^4.11.0",
     "jest": "^21.2.1"
   },
