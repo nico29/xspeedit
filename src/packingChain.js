@@ -45,6 +45,7 @@ class PackingChain {
      */
     pack () {
         let things = [...arguments].reduce((prev, current) => prev.concat(current), []);
+        // start with bigger things since there are likely to almost fill the package
         things = things.sort((n1, n2) => n2 - n1);
         for (let thing of things) {
             let stored = false;
@@ -61,6 +62,7 @@ class PackingChain {
                     }
                 }
             }
+            // this will also handle the creation of the first package in the chain
             if (!stored) {
                 let pkg = new Package(this.packageCapacity);
                 this.packages.push(pkg);
